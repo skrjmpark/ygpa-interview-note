@@ -351,6 +351,11 @@ footer{border-top:1px solid var(--line);padding-block:18px 30px;font-size:12px;c
     store.set('ygpa_theme',next);
   });
 
+  window.addEventListener('hashchange',function(){
+    var h = /^#sheet-(\d+)$/.exec(location.hash||'');
+    if(h && SHEETS[+h[1]] && +h[1] !== cur) show(+h[1]);
+  });
+
   var start = 0;
   var m = /^#sheet-(\d+)$/.exec(location.hash||'');
   if(m && SHEETS[+m[1]]) start = +m[1];
