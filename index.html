@@ -271,6 +271,7 @@ footer{border-top:1px solid var(--line);padding-block:18px 30px;font-size:12px;c
     Array.prototype.forEach.call(tabsEl.children,function(b,j){ b.setAttribute('aria-selected', j===i?'true':'false'); });
     if(hideOn) applyHide();
     window.scrollTo(0,0);
+    try{ tabsEl.children[i].scrollIntoView({block:'nearest',inline:'center'}); }catch(e){}
     try{ location.hash = 'sheet-'+i; }catch(e){}
   }
   tabsEl.addEventListener('click',function(e){
